@@ -1,0 +1,66 @@
+
+
+
+
+<div class="teads-inread xs-screen" style="background-image: url('https://cdn.shopify.com/s/files/1/2163/6521/products/Block_Solido_360x.jpg'); background-repeat: no-repeat; margin: auto; height: 297px; max-width: 441px; transition-duration: 0s;">
+  <div style="margin-right: 0px; margin-left: 0px; position: relative;">
+    <div class="teads-ui-components-adchoices">
+      <span>AdChoices</span>
+    </div>
+    <div class="teads-ui-components-label">PUBLICIDAD</div>
+    <div class="teads-player" id="teads0" style="display: block !important;">
+      <iframe frameborder="0" scrolling="no" style="margin: 0px !important; padding: 0px !important; border: 0px !important; border-image: none !important; width: 441px !important; height: 248px !important; overflow: hidden !important; display: block; max-height: 248px !important; float: none !important;" allow="autoplay"></iframe>
+    </div>
+    <div class="teads-ui-components-credits"><a href="https://www.teads.com/?utm_source=inread&amp;utm_medium=credits&amp;utm_campaign=invented%20by%20teads" target="_blank" rel="nofollow">
+      <span class="teads-ui-components-credits-colored">inRead</span> invented by Teads</a>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+$(window).load(function() {
+
+    if( document.readyState !== 'loading' ) {
+        //console.log( 'document is already ready, just execute code here' );
+        AdCode();
+    }else{
+        document.addEventListener('DOMContentLoaded', function () {
+            //console.log( 'document was not ready, place code here' );
+            AdCode();
+        });
+    }
+
+    function AdCode() {
+        var teadsDivContainer =  document.getElementsByClassName("field-name-body");
+        var teadsPContainer = $(".field-name-body").find("p");
+        var numP = $(".field-name-body").find("p").size();
+        var inx = 0;
+        var s = document.createElement("script");
+            s.type = "text/javascript";
+        var code = "window._taboola = window._taboola || []; _taboola.push({ mode: 'thumbnails-m', container: 'taboola-mid-article-thumbnails',placement: 'Mid Article Thumbnails',target_type: 'mix'});";
+        //Check if there is 3 paragraphs or more, if there exist less than 3, the index is equal to the total of paragrphs availables.
+        if ( numP > 3){
+          inx = 2;
+        }else{
+          inx = numP;
+        }
+        //Div AD
+        console.log(teadsPContainer);
+        ad = document.createElement("div")
+        ad.setAttribute("id", "taboola-mid-article-thumbnails");
+        teadsPContainer[inx].appendChild(ad);
+        //JS Code Ad
+        try {
+           s.appendChild(document.createTextNode(code));
+           teadsPContainer[inx].appendChild(s);
+        } catch (e) {
+           s.text = code;
+           teadsPContainer[inx].appendChild(s);
+        }
+    }
+    //console.log( $(".field-name-body").find("p").size() );
+    //console.log( $(".field-name-body").find("p") );
+ });
+
+</script>
